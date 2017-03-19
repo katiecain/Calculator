@@ -3,28 +3,32 @@
  */
 import spock.lang.*
 class CalculatorSpec extends spock.lang.Specification {
-    def calc = new Calculator()
-
     def "adding two whole numbers"() {
         given: "a new calculator class is created"
+        def calc = new Calculator()
 
         expect: "Adding two numbers returns their sum"
         calc.add(1, 2) == 3
-/*
-        def sum = calc.add(1, 1)
-        assert 2 == sum
-*/
     }
-    void testSubtract(){
-        def diff = calc.subtract(1, 1)
-        assert 0 == diff
+    def "subtracting two whole numbers"(){
+        given: "a new calculator class is created"
+        def calc = new Calculator()
+
+        expect: "subtracting two numbers returns their difference"
+        calc.subtract(1, 1) == 0
     }
-    void testMultiply(){
-        def total = calc.multiply(2, 2)
-        assert 4 == total
+    def "multiplying two whole numbers"(){
+        given: "a new calculator class is created"
+        def calc = new Calculator()
+
+        expect: "multiplying two numbers returns the right total"
+        calc.multiply(2, 2) == 4
     }
-    void testDivide(){
-        def total = calc.divide(2,2)
-        assert 1 == total
+    def "dividing two whole numbers"(){
+        given: "a new calculator class is created"
+        def calc = new Calculator()
+
+        expect:
+        calc.divide(2,2) == 1
     }
 }
